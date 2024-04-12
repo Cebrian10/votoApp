@@ -12,16 +12,22 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent {
 
-  weatherForecasts$: Observable<any[]> = new Observable<any[]>();
+  //weatherForecasts$: Observable<any[]> = new Observable<any[]>();
+  personas$: Observable<any[]> = new Observable<any[]>();
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.weatherForecasts$ = this.apiService.getDataFromUrl('WeatherForecast');
+    //this.weatherForecasts$ = this.apiService.getDataFromUrl('WeatherForecast');
+    this.personas$ = this.apiService.getDataFromUrl('Persona');
 
-    this.weatherForecasts$.subscribe(data => {
+    //this.weatherForecasts$.subscribe(data => {
+      //console.log(data);
+    //});
+
+    this.personas$.subscribe(data => {
       console.log(data);
-    });
+    })
   }
 
   /* 
