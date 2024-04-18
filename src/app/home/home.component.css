@@ -1,0 +1,78 @@
+.nav-pills {
+    --bs-nav-pills-border-radius: 0;
+    justify-content: space-around;
+}
+
+.nav-item {
+    width: 50%;
+}
+
+.nav-item button {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.fixed-bottom {
+    background: white;
+}
+
+#pills-consultas {
+    margin-inline: 10%;
+    margin-top: 56px;
+}
+
+#pills-lista {
+    margin-top: 56px;
+}
+
+#pills-consultas h2,
+#pills-lista h2 {
+    text-align: center;
+    padding: 10%;
+}
+
+#pills-consultas p {
+    font-size: 18px;
+    text-align: center;
+}
+
+#pills-consultas div button {
+    width: 100%;
+}
+
+.list-group {
+    margin-bottom: 50px;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-group-item img {
+    max-width: 100px;
+}
+
+.list-group-item div>* {
+    text-align: center;
+    margin: 0;
+    padding-inline: 10px;
+    font-family: cursive;
+}
+
+.nombre_completo {
+    font-weight: bold;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.centro_votacion {
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
