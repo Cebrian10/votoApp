@@ -31,9 +31,8 @@
     <h2>Consulta de Cédula</h2>
     <p class="mb-3">Ingrese el número de cédula para realizar la búsqueda:</p>
     <div class="mb-3">
-      <input type="text" class="form-control mb-3" placeholder="Ejemplo: 0-000-000" aria-label="Número de cédula"
-        aria-describedby="basic-addon2">
-      <button class="btn btn-primary mb-1" type="button">Buscar</button>
+      <input type="text" class="form-control mb-3" placeholder="Ejemplo: 0-000-000" aria-label="Número de cédula" aria-describedby="basic-addon2" [(ngModel)]="cedula">
+      <button class="btn btn-primary mb-1" type="button" (click)="buscarPersona()">Buscar</button>
       <button class="btn btn-outline-primary" type="button" (click)="cerrarSession()">Cerrar Sesion</button>
     </div>
   </div>
@@ -43,19 +42,17 @@
     <h2>Lista de Simpatizantes</h2>
     <ul class="list-group">
       @if(listaSimpatizantes.length > 0) {
-      @for (simpatizante of listaSimpatizantes; track simpatizante) {
-      <li class="list-group-item">
-        <img src="../../assets/img/logo.jpg">
-        <div>
-          <p class="nombre_completo">{{ simpatizante.nombre_completo }}</p>
-          <p>{{ simpatizante.cedula }}</p>
-          <p class="centro_votacion">{{ simpatizante.centro_votacion }}</p>
-        </div>
-      </li>
+        @for (simpatizante of listaSimpatizantes; track simpatizante) {
+          <li class="list-group-item">
+            <img src="../../assets/img/logo.jpg">
+            <div>
+              <p class="nombre_completo">{{ simpatizante.nombre_completo }}</p>
+              <p>{{ simpatizante.cedula }}</p>
+              <p class="centro_votacion">{{ simpatizante.centro_votacion }}</p>
+            </div>
+          </li>
+        }
       }
-      }
-
     </ul>
   </div>
-
 </div>

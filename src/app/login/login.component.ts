@@ -3,7 +3,6 @@ import { RouterLink, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { tap, catchError } from 'rxjs';
 
-
 import { ApiService } from '../service/api.service';
 import { DataService } from '../service/data.service';
 import { SessionService } from '../service/session.service';
@@ -11,6 +10,7 @@ import { SessionService } from '../service/session.service';
 import Swal from 'sweetalert2';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faLock, faIdCard } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-login',

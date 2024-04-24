@@ -1,0 +1,186 @@
+.container{
+    /* background: rgb(0,134,255);
+    background: linear-gradient(180deg, rgba(0,134,255,1) 0%, rgba(76,158,255,1) 25%, rgba(255,255,255,1) 50%); */
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.persona__section{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile .profile__card {
+    width: 150px; /* Tamaño cuadrado deseado */
+    height: 150px; /* Tamaño cuadrado deseado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgb(49, 125, 255);
+    border-radius: 50%;
+    overflow: hidden; /* Evita que la imagen sobresalga del círculo */
+}
+
+.profile .profile__card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%; /* Ajustar según sea necesario */
+}
+
+.profile__info .profile__info-name{
+    font-weight: bold;
+    color: rgb(49, 125, 255);
+    text-align: center; /* Para centrar horizontalmente */
+    font-size: 1.2rem;
+}
+
+.profile__info .profile__info-id{
+    font-weight: bold;
+    color: rgb(49, 125, 255);
+    text-align: center; /* Para centrar horizontalmente */
+    font-size: 0.9rem;
+}
+
+.info{
+
+}
+
+.info .info__panel{
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espacio entre elementos */
+}
+
+.info .info__panel .info__item{
+    background-color: rgb(243, 242, 242);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.info .info__panel .info__item .info__item-title{
+    width: max-content;
+    padding: 4px 6px;
+    margin: 0;
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(49, 125, 255);
+    font-size: 0.75rem;
+}
+
+.info .info__panel .info__item .info__item-data{
+    font-weight: bold; /* Texto en negrita para los datos */
+}
+
+
+
+.buttons{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.buttons .addProfile, 
+.buttons .sendProfile{
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+.nav-pills {
+    --bs-nav-pills-border-radius: 0;
+    justify-content: space-around;
+}
+
+.nav-item {
+    width: 50%;
+}
+
+.nav-item button {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.fixed-bottom {
+    background: white;
+}
+
+#pills-consultas {
+    margin-inline: 10%;
+    margin-top: 56px;
+}
+
+#pills-lista {
+    margin-top: 56px;
+}
+
+#pills-consultas h2,
+#pills-lista h2 {
+    text-align: center;
+    padding: 10%;
+}
+
+#pills-consultas p {
+    font-size: 18px;
+    text-align: center;
+}
+
+#pills-consultas div button {
+    width: 100%;
+}
+
+.list-group {
+    margin-bottom: 50px;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-group-item img {
+    max-width: 100px;
+}
+
+.list-group-item div>* {
+    text-align: center;
+    margin: 0;
+    padding-inline: 10px;
+    font-family: cursive;
+}
+
+.nombre_completo {
+    font-weight: bold;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.centro_votacion {
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

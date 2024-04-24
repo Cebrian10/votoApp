@@ -1,18 +1,20 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { catchError, tap } from 'rxjs';
 
 import { ApiService } from '../service/api.service';
 import { DataService } from '../service/data.service';
 import { SessionService } from '../service/session.service';
 
+import Swal from 'sweetalert2';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSearch, faList } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -28,9 +30,43 @@ export class HomeComponent {
 
   userData: any;
   listaSimpatizantes: any = {};
+  cedula: string = "";
 
   constructor() {
     this.userData = this.sessionService.getSessionData('userData');
+  }
+
+  buscarPersona() {
+    if (this.cedula.trim() === '') {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Error de Validación',
+        text: 'Por favor ingrese la cédula.',
+      });
+      return;
+    }
+
+    this.apiService.getExistePersonaByCedula('ExistePersona', this.cedula)
+    .subscribe({
+      next: (response) => {
+        Swal.fire({
+          icon: 'success',
+          title: response.titulo,
+        }).then(() => {
+          this.router.navigate([`/persona/${this.cedula}`]);
+        });
+      },
+      error: (error) => {
+        Swal.fire({
+          icon: 'error',
+          title: error.error.titulo,
+          text: error.error.mensaje,
+        });
+      },
+      complete: () => {
+        console.log('La operación ha finalizado');
+      }
+    });
   }
 
   obtenerSimpatizantes() {

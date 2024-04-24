@@ -37,24 +37,28 @@
       </div>
       <div class="col-md-6 align-self-center">
         <h1 class="text-center mb-4">Registrarse</h1>
-        <form  method="post">
+        <form  (submit)="onSubmit()" method="post">
             <div class="input-group mb-3">
                 <label for="nombre" class="input-group-text"><fa-icon [icon]="faUser"/></label>
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" [(ngModel)]="nombre">
             </div>
             <div class="input-group mb-3">
                 <label for="cedula" class="input-group-text"><fa-icon [icon]="faIdCard"/></label>
-                <input type="text" class="form-control" id="cedula" name="cedula" placeholder="Ingrese su cédula">
+                <input type="text" class="form-control" id="cedula" name="cedula" placeholder="Ingrese su cédula" [(ngModel)]="cedula">
+            </div>
+            <div class="input-group mb-3">
+                <label for="email" class="input-group-text"><fa-icon [icon]="faEmail"/></label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Ingrese su email" [(ngModel)]="email">
             </div>
             <div class="input-group mb-3">
                 <label for="telefono" class="input-group-text"><fa-icon [icon]="faPhone"/></label>
-                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su teléfono">
+                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su teléfono" [(ngModel)]="telefono">
             </div>
             <div class="input-group mb-4">
                 <label for="contrasena" class="input-group-text"><fa-icon [icon]="faLock"/></label>
-                <input type="password" class="form-control" id="contrasena" name="contrasena"placeholder="Ingrese su contraseña">
+                <input type="password" class="form-control" id="contrasena" name="contrasena"placeholder="Ingrese su contraseña" [(ngModel)]="contrasena">
             </div>  
-          <button type="submit" class="btn btn-primary btn-block mb-3" routerLink="home">Registrarse</button>
+          <button type="submit" class="btn btn-primary btn-block mb-3">Registrarse</button>
   
           <p class="sin-cuenta">Ya tienes cuenta?<span class="registrate-aqui" routerLink="login"> Ingresa aquí.</span></p>
         </form>

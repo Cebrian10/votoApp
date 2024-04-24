@@ -17,9 +17,9 @@ export class ApiService {
   }
 
   // Registro del usuario en la aplicación
-  postRegister(endpoint: string){
+  postRegister(endpoint: string, formData: any): Observable<any>{
     const url = `${this.apiUrl}/${endpoint}`;
-    return this.http.post<any>(url, 'nada');
+    return this.http.post<any>(url, formData);
   }
 
   // Lista de simpatizantes por userId
@@ -28,6 +28,15 @@ export class ApiService {
     return this.http.post<any>(url, userId);
   }
 
-  
+  // Verifica si una persona existe en el padron por Cedula
+  getExistePersonaByCedula(endpoint: string, cedula: string): Observable<any>{
+    const url = `${this.apiUrl}/${endpoint}/${cedula}`;
+    return this.http.get<any>(url);
+  }
 
+  // Busca datos de una persona por Cedula
+  getPersonaByCedula(endpoint: string, cedula: string): Observable<any> {
+    const url = `${this.apiUrl}/${endpoint}/${cedula}`;
+    return this.http.get<any>(url);
+  }
 }
