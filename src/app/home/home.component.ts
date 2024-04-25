@@ -7,6 +7,9 @@ import { ApiService } from '../service/api.service';
 import { DataService } from '../service/data.service';
 import { SessionService } from '../service/session.service';
 
+import { NavbarComponent } from '../components/navbar/navbar.component';
+import { NavigationComponent } from '../components/navigation/navigation.component';
+
 import Swal from 'sweetalert2';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSearch, faList } from '@fortawesome/free-solid-svg-icons';
@@ -14,7 +17,7 @@ import { faSearch, faList } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FontAwesomeModule, FormsModule],
+  imports: [FontAwesomeModule, FormsModule, NavbarComponent, NavigationComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -46,12 +49,28 @@ export class HomeComponent {
       return;
     }
 
-    this.apiService.getExistePersonaByCedula('ExistePersona', this.cedula)
+    Swal.fire({
+      position: 'center',
+      icon: "info",
+      title: "Buscando Usuario",
+      showConfirmButton: false,
+      timer: 100000,
+      allowOutsideClick: false,
+      willOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
+
+    this.apiService.getPersonaByCedula('consulta', this.cedula)
     .subscribe({
       next: (response) => {
+        //console.log(response);
+        
+        this.dataService.setPersonaData(response);
         Swal.fire({
           icon: 'success',
-          title: response.titulo,
+          title: response.mensajes.title,
         }).then(() => {
           this.router.navigate([`/persona/${this.cedula}`]);
         });
@@ -59,34 +78,14 @@ export class HomeComponent {
       error: (error) => {
         Swal.fire({
           icon: 'error',
-          title: error.error.titulo,
-          text: error.error.mensaje,
+          title: error.error.mensajes.title,
+          text: error.error.mensajes.mensaje,
         });
       },
       complete: () => {
         console.log('La operación ha finalizado');
       }
     });
-  }
-
-  obtenerSimpatizantes() {
-    this.apiService.postSimpatizantes('Simpatizantes', this.userData.id)
-      .pipe(
-        tap(response => {                    
-          if (response.codigo == 200) {
-            this.listaSimpatizantes = response.simpatizantes;            
-          }
-
-          else if (response.codigo == 201) {
-
-          }
-        }),
-        catchError(error => {
-          console.error('Error al enviar los datos:', error);
-          throw error;
-        })
-      )
-      .subscribe();
   }
 
   cerrarSession() {

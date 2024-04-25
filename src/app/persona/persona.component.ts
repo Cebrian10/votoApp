@@ -8,6 +8,9 @@ import { ApiService } from '../service/api.service';
 import { DataService } from '../service/data.service';
 import { SessionService } from '../service/session.service';
 
+import { NavbarComponent } from '../components/navbar/navbar.component';
+import { NavigationComponent } from '../components/navigation/navigation.component';
+
 import Swal from 'sweetalert2';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faLock, faIdCard, faUser, faPhone, faEnvelope, faSearch, faList } from '@fortawesome/free-solid-svg-icons';
@@ -16,7 +19,7 @@ import { faLock, faIdCard, faUser, faPhone, faEnvelope, faSearch, faList } from 
 @Component({
     selector: 'app-persona',
     standalone: true,
-    imports: [CommonModule, RouterLink, FontAwesomeModule, FormsModule],
+    imports: [CommonModule, RouterLink, FontAwesomeModule, FormsModule, NavbarComponent, NavigationComponent],
     templateUrl: './persona.component.html',
     styleUrl: './persona.component.css'
   })
@@ -46,16 +49,22 @@ import { faLock, faIdCard, faUser, faPhone, faEnvelope, faSearch, faList } from 
     }
  
     ngOnInit() {
-      this.route.params.subscribe(params => {
+      const personaData = this.dataService.getPersonaData();
+      if (personaData) {
+          this.persona = personaData;
+          this.profilePhoto = `https://picsptyzam.blob.core.windows.net/ptypics/fotospg/Imagep${personaData.cedula}.png`;
+      }
+      else {
+        this.route.params.subscribe(params => {
           const cedula = params['cedula'];
-          this.apiService.getPersonaByCedula('BuscarPersona', cedula)
+          this.apiService.getPersonaByCedula('consulta', cedula)
               .subscribe({
                   next: (response) => {
                       this.persona = response.persona;
                       this.profilePhoto = `https://picsptyzam.blob.core.windows.net/ptypics/fotospg/Imagep${response.cedula}.png`;
                   },
                   error: (error) => {
-                      console.error('Error al obtener los datos de la persona:', error);
+                      //console.error('Error al obtener los datos de la persona:', error);
                       Swal.fire({
                           icon: 'error',
                           title: 'Error',
@@ -64,7 +73,8 @@ import { faLock, faIdCard, faUser, faPhone, faEnvelope, faSearch, faList } from 
                   }
               });
       });
-  }  
-}
+      }
+    }  
+  }
   
 

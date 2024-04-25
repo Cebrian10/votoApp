@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand navbar-light bg-light fixed-bottom p-0">
+    <div class="navbar-nav w-100">
+        <div class="nav-item w-100 text-center" [class.active-tab]="isActive('/home')" [class.active-tab-cedula]="isCedulaActive()">
+            <a class="w-100 btn" routerLink="/home"><fa-icon
+                [icon]="faSearch" /> Consultas</a>
+        </div>
+        <!-- <div class="nav-item w-50 text-center" [class.active-tab]="isActive('/simpatizantes')">
+            <a class="w-100 btn" routerLink="/simpatizantes"><fa-icon
+                [icon]="faList" /> Lista</a>
+        </div> -->
+    </div>
+</nav>

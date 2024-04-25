@@ -25,7 +25,7 @@ export class LoginComponent {
   faIdCard = faIdCard;
 
   cedula: string = "";
-  contrasena: string = "";
+  password: string = "";
 
   constructor(
     private apiService: ApiService,     
@@ -37,7 +37,7 @@ export class LoginComponent {
   onSubmit() {
 
     // Verificacion de campos vacios
-    if (this.cedula != "" && this.contrasena != "") {
+    if (this.cedula != "" && this.password != "") {
 
       Swal.fire({
         position: 'center',
@@ -53,59 +53,38 @@ export class LoginComponent {
 
       // Creacion de objeto con los datos del usuario 
       const formData = {
-        cedula: this.cedula,
-        contrasena: this.contrasena
+        email: this.cedula,
+        password: this.password
       };
 
-      // Peticion al api
-      this.apiService.postLogin('Login', formData)
-        .pipe(
-          tap(response => {
 
-            // Peticion exitosa!
-            if (response.codigo == 200) {    
-              Swal.close();        
-              
-              this.sessionService.setSessionData('userData', response.info);
-              this.dataService.setLoginInfo(response.info);
-              this.router.navigate(['/home']);
-            }
+      this.apiService.postLogin('login', formData)
+      .subscribe({
+        next: (response) => {
+          Swal.fire({
+            icon: 'success',
+            title: "Verificado",
+            text: "Bienvenido nuevamente a VotoAPP",
+          }).then(() => {
+            //console.log(response);
+            
+            this.sessionService.setSessionData('userData', response);
+            this.dataService.setLoginInfo(response);
+            this.router.navigate(['/home']);
+          });
+        },
+        error: (error) => {
+          Swal.fire({
+            icon: 'error',
+            title: "Error",
+            text: error.error.mensaje,
+          });
+        },
+        complete: () => {
+          console.log('La operación ha finalizado');
+        }
+      });
 
-            // Petición fallida por password
-            else if (response.codigo == 203) {
-              Swal.fire({
-                position: 'center',
-                icon: "error",
-                title: "Contraseña incorrecta!",
-                showConfirmButton: false,
-                timer: 2000,
-                allowOutsideClick: false,
-              });
-            }
-
-            // Petición fallida por cedula
-            else if (response.codigo == 204) {
-              Swal.fire({
-                position: 'center',
-                icon: "error",
-                title: "Usuario no existe!",
-                showConfirmButton: false,
-                timer: 2000,
-                allowOutsideClick: false,
-              });
-            } else {
-              console.error('Respuesta del servidor inesperada:', response);
-            }
-
-          }),
-          catchError(error => {
-            console.error('Error al enviar los datos:', error);
-            throw error;
-          })
-        )
-        .subscribe();
-
-      // Mensaje de validacion para campos vacios
     } else {
       Swal.fire({
         position: 'center',

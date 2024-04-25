@@ -1,78 +1,67 @@
-.nav-pills {
-    --bs-nav-pills-border-radius: 0;
-    justify-content: space-around;
+.container{
+    margin-top: 85px;
+    margin-bottom: 85px;
 }
 
-.nav-item {
-    width: 50%;
-}
-
-.nav-item button {
-    width: 100%;
+.container__section{
+    margin: 10px;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
 }
 
-.fixed-bottom {
-    background: white;
+.logo__app{
+    max-width: 550px;
 }
 
-#pills-consultas {
-    margin-inline: 10%;
-    margin-top: 56px;
-}
-
-#pills-lista {
-    margin-top: 56px;
-}
-
-#pills-consultas h2,
-#pills-lista h2 {
-    text-align: center;
-    padding: 10%;
-}
-
-#pills-consultas p {
-    font-size: 18px;
+.container__section .title{
     text-align: center;
 }
 
-#pills-consultas div button {
-    width: 100%;
+
+@media (min-width: 410px) {
+    .container__section {
+        margin: 1rem;
+        gap: 1rem;
+    }
 }
 
-.list-group {
-    margin-bottom: 50px;
+
+@media (min-width: 765px) {
+    .container__section {
+        flex-direction: row;
+        margin-top: 100px;
+        padding: 1.5rem;
+        gap: 1.2rem;
+        flex: 1;
+        border-radius: 15px;
+        background: rgb(243, 243, 243);
+        align-items: center;
+    }
+
+    .logo__app{
+        max-width: 300px;
+    }
+
+    .search__section{
+        width: 100%;
+    }
 }
 
-.list-group-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+@media (min-width: 1000px) {
+    .container__section {
+        margin-top: 120px;
+        gap: 2rem;     
+        padding: 2rem;
+    }
+
+    .logo__app{
+        max-width: 350px;
+    }
 }
 
-.list-group-item img {
-    max-width: 100px;
-}
 
-.list-group-item div>* {
-    text-align: center;
-    margin: 0;
-    padding-inline: 10px;
-    font-family: cursive;
-}
 
-.nombre_completo {
-    font-weight: bold;
-    max-width: 200px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
 
-.centro_votacion {
-    max-width: 200px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}

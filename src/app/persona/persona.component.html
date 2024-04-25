@@ -1,11 +1,13 @@
-<nav class="navbar navbar-expand-lg bg-primary fixed-top" data-bs-theme="dark">
+<app-navbar></app-navbar>
+<app-navigation></app-navigation>
+<!-- <nav class="navbar navbar-expand-lg bg-primary fixed-top" data-bs-theme="dark">
     <div class="container-fluid">
       <label class="navbar-brand">{{ userData.name }}</label>
     </div>
-  </nav>
+  </nav> -->
   
   <!-- Botones Tabs se Consultas y Mi Lista -->
-  <div class="row fixed-bottom">
+  <!-- <div class="row fixed-bottom">
     <div class="col">
         <ul class="nav nav-pills" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -22,7 +24,7 @@
             </li>
         </ul>
     </div>
-  </div>
+  </div> -->
 
 
 <div class="container">
@@ -30,43 +32,45 @@
         <div class="persona__section">
             <div class="profile">
                 <div class="profile__card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxOVi3v1F-fBLvV6yEztKVO2jZeXQd7TLIvWiGBm81yw&s" class="img-fluid rounded-circle" alt="foto-perfil-persona">
+                    <img src="https://picsptyzam.blob.core.windows.net/ptypics/fotospg/Imagep{{ persona.cedula }}.png" class="img-fluid rounded-circle">
                 </div>
                 <div class="profile__info">
-                    <div class="profile__info-name">{{ persona.nombreCompleto }}</div>
+                    <div class="profile__info-name">{{ persona.nombre_completo }}</div>
                     <div class="profile__info-id">{{ persona.cedula }}</div>
                 </div>
             </div>
 
-            <div class="info">
-                <div class="info__panel">
-                    <div class="info__item">
-                        <div class="info__item-title">Circunscripción</div>
-                        <div class="info__item-data">{{ persona.provincia }} - {{ persona.idCircuito }}</div>
-                    </div>
-                    <div class="info__item">
-                        <div class="info__item-title">Distrito</div>
-                        <div class="info__item-data">{{ persona.distrito }}</div>
-                    </div>
-                    <div class="info__item">
-                        <div class="info__item-title">Corregimiento</div>
-                        <div class="info__item-data">{{ persona.corregimiento }}</div>
-                    </div>
-                    <div class="info__item">
-                        <div class="info__item-title">Centro y Mesa</div>
-                        <div class="info__item-data">{{ persona.centroVotacion }} - Mesa {{ persona.mesa }}</div>
-                    </div>
-                    <div class="info__item">
-                        <div class="info__item-title">Teléfono</div>
-                        <div class="info__item-data">{{ persona.telefono }}</div>
+            <div>
+                <div class="info">
+                    <div class="info__panel">
+                        <div class="info__item">
+                            <div class="info__item-title">Circunscripción</div>
+                            <div class="info__item-data">{{ persona.provincia }} - {{ persona.idCircuito }}‎</div>
+                        </div>
+                        <div class="info__item">
+                            <div class="info__item-title">Distrito</div>
+                            <div class="info__item-data">{{ persona.distrito }}‎</div>
+                        </div>
+                        <div class="info__item">
+                            <div class="info__item-title">Corregimiento</div>
+                            <div class="info__item-data">{{ persona.corregimiento }}‎</div>
+                        </div>
+                        <div class="info__item">
+                            <div class="info__item-title">Centro y Mesa</div>
+                            <div class="info__item-data">{{ persona.centro_votacion }} - Mesa {{ persona.mesa }}‎</div>
+                        </div>
+                        <div class="info__item">
+                            <div class="info__item-title">Teléfono</div>
+                            <div class="info__item-data">{{ persona.contacto }}‎</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="actions">
-                <div class="buttons">
-                    <button class="addProfile btn btn-outline-primary">AGREGAR</button>
-                    <button class="sendProfile btn btn-primary">ENVIAR</button>
+    
+                <div class="actions">
+                    <div class="buttons mt-3">
+                        <!-- <button class="addProfile btn btn-outline-primary">AGREGAR</button> -->
+                        <button class="sendProfile btn btn-primary">ENVIAR</button>
+                    </div>
                 </div>
             </div>
         </div>

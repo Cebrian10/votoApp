@@ -33,6 +33,7 @@ export class RegisterComponent {
   telefono: string = "";
   contrasena: string = "";
   role: number = 1;
+  candidato_id: number = 0;
   
   constructor(
     private apiService: ApiService,     
@@ -46,31 +47,44 @@ export class RegisterComponent {
     if (this.isFormValid()) {
 
       const formData = {
-        nombre: this.nombre,
+        name: this.nombre,
         cedula: this.cedula,
         email: this.email,
-        telefono: this.telefono,
-        contrasena: this.contrasena,
-        role: this.role
+        phone: this.telefono,
+        password: this.contrasena,
+        role: this.role,
+        cadidato_id: this.candidato_id
       };
 
-      this.apiService.postRegister('Register', formData)
+      Swal.fire({
+        position: 'center',
+        icon: "info",
+        title: "Registrando",
+        showConfirmButton: false,
+        timer: 100000,
+        allowOutsideClick: false,
+        willOpen: () => {
+          Swal.showLoading();
+        },
+      });
+
+      this.apiService.postRegister('registro', formData)
       .subscribe({
         next: (response) => {
           Swal.fire({
             icon: 'success',
-            title: response.titulo,
-            text: response.mensaje,
+            title: response.mensajes.title,
+            text: response.mensajes.mensaje,
           }).then(() => {
             this.router.navigate(['/login']);
           });
         },
         error: (error) => {
-          console.error('Error al enviar los datos:', error);
+          //console.error('Error al enviar los datos:', error);
           Swal.fire({
             icon: 'error',
-            title: error.error.titulo,
-            text: error.error.mensaje,
+            title: error.error.mensajes.title,
+            text: error.error.mensajes.mensaje,
           });
         },
         complete: () => {

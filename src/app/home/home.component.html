@@ -1,58 +1,22 @@
-<nav class="navbar navbar-expand-lg bg-primary fixed-top" data-bs-theme="dark">
-  <div class="container-fluid">
-    <label class="navbar-brand">{{ userData.name }}</label>
-  </div>
-</nav>
+<app-navbar></app-navbar>
+<app-navigation></app-navigation>
 
-<!-- Botones Tabs se Consultas y Mi Lista -->
-<div class="row fixed-bottom">
-  <div class="col">
-    <ul class="nav nav-pills" id="pills-tab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="pills-consultas-tab" data-bs-toggle="pill" data-bs-target="#pills-consultas"
-          type="button" role="tab" aria-controls="pills-consultas" aria-selected="true"><fa-icon
-            [icon]="faSearch" />Consultas</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button (click)="obtenerSimpatizantes()" class="nav-link" id="pills-lista-tab" data-bs-toggle="pill"
-          data-bs-target="#pills-lista" type="button" role="tab" aria-controls="pills-lista"
-          aria-selected="false"><fa-icon [icon]="faList" />Mi Lista</button>
-      </li>
-    </ul>
-  </div>
-</div>
-
-
-<div class="tab-content" id="pills-tabContent">
-
-  <!-- Panel de Consultas por Cedula -->
-  <div class="tab-pane fade show active" id="pills-consultas" role="tabpanel" aria-labelledby="pills-consultas-tab"
-    tabindex="0">
-    <h2>Consulta de Cédula</h2>
-    <p class="mb-3">Ingrese el número de cédula para realizar la búsqueda:</p>
-    <div class="mb-3">
-      <input type="text" class="form-control mb-3" placeholder="Ejemplo: 0-000-000" aria-label="Número de cédula" aria-describedby="basic-addon2" [(ngModel)]="cedula">
-      <button class="btn btn-primary mb-1" type="button" (click)="buscarPersona()">Buscar</button>
-      <button class="btn btn-outline-primary" type="button" (click)="cerrarSession()">Cerrar Sesion</button>
+<div class="container">
+  <div class="container__section">
+    <div class="logo__app">
+      <img src="../../assets/img/logo.jpg" class="img-fluid rounded-circle" alt="foto-votoapp">
     </div>
-  </div>
-
-  <!-- Panel de Lista de Simpatizantes -->
-  <div class="tab-pane fade" id="pills-lista" role="tabpanel" aria-labelledby="pills-lista-tab" tabindex="0">
-    <h2>Lista de Simpatizantes</h2>
-    <ul class="list-group">
-      @if(listaSimpatizantes.length > 0) {
-        @for (simpatizante of listaSimpatizantes; track simpatizante) {
-          <li class="list-group-item">
-            <img src="../../assets/img/logo.jpg">
-            <div>
-              <p class="nombre_completo">{{ simpatizante.nombre_completo }}</p>
-              <p>{{ simpatizante.cedula }}</p>
-              <p class="centro_votacion">{{ simpatizante.centro_votacion }}</p>
-            </div>
-          </li>
-        }
-      }
-    </ul>
+    <div class="search__section">
+      <div class="title">
+        <h2>Consulta de Cédula</h2>
+      </div>
+      <div class="search">
+        <p>Ingrese el número de cédula para realizar la búsqueda:</p>
+        <div>
+          <input type="text" class="form-control mb-3" placeholder="Ejemplo: 0-000-000" aria-label="Número de cédula" aria-describedby="basic-addon2" [(ngModel)]="cedula">
+          <button class="btn btn-primary w-100" type="button" (click)="buscarPersona()">Buscar</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

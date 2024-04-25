@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<app-navigation></app-navigation>
+
+<div class="container">
+    <h2>Lista de Simpatizantes</h2>
+    <ul class="p-0 m-0 mt-4">
+        <ng-container *ngIf="listaSimpatizantes.length > 0" class="list__container">
+            <li *ngFor="let simpatizante of listaSimpatizantes; trackBy: trackByFn" class="list-group-item">
+                <img [src]="'https://picsptyzam.blob.core.windows.net/ptypics/fotospg/Imagep' + simpatizante.cedula + '.png'">
+                <div>
+                    <div class="nombre_completo">{{ simpatizante.nombre_completo }}</div>
+                    <div class="cedula">{{ simpatizante.cedula }}</div>
+                    <div class="centro_votacion">{{ simpatizante.centro_votacion }}</div>
+                </div>
+            </li>
+        </ng-container>
+    </ul>
+</div>
+

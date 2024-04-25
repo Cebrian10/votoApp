@@ -1,7 +1,7 @@
 .container{
     /* background: rgb(0,134,255);
     background: linear-gradient(180deg, rgba(0,134,255,1) 0%, rgba(76,158,255,1) 25%, rgba(255,255,255,1) 50%); */
-    margin-top: 100px;
+    margin-top: 90px;
     margin-bottom: 100px;
 }
 
@@ -15,7 +15,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+    padding: 16px;
 }
 
 .profile .profile__card {
@@ -44,14 +45,14 @@
 
 .profile__info .profile__info-name{
     font-weight: bold;
-    color: rgb(49, 125, 255);
+    color: rgb(26, 26, 26);
     text-align: center; /* Para centrar horizontalmente */
     font-size: 1.2rem;
 }
 
 .profile__info .profile__info-id{
     font-weight: bold;
-    color: rgb(49, 125, 255);
+    color: rgb(83, 83, 83);
     text-align: center; /* Para centrar horizontalmente */
     font-size: 0.9rem;
 }
@@ -98,6 +99,8 @@
 .buttons .sendProfile{
     width: 100%;
 }
+
+
 
 
 

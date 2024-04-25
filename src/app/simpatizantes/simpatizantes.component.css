@@ -1,0 +1,36 @@
+.container{
+    margin-top: 85px;
+}
+
+.list-group-item{
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    background-color: rgb(243, 242, 242);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.list-group-item img{
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.list-group-item .nombre_completo{
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.list-group-item .cedula{
+    width: max-content;
+    padding: 4px 10px;
+    margin: 0;
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(49, 125, 255);
+    font-size: 0.75rem;
+}
+
+.list-group-item .centro_votacion{
+    margin-top: 10px;
+}
