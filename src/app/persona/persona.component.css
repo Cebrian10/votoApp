@@ -106,9 +106,6 @@
 
 
 
-
-
-
 .nav-pills {
     --bs-nav-pills-border-radius: 0;
     justify-content: space-around;
@@ -187,3 +184,22 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+
+@media (min-width: 768px) {
+    .info .info__panel {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas con el mismo ancho */
+      gap: 16px; /* Espacio entre elementos */
+    }
+
+    .info .info__panel .info__item{
+        background-color: rgb(243, 242, 242);
+        padding: 14px;
+        border-radius: 10px;
+    }
+
+    .info .info__panel .info__item .info__item-title{
+        margin-bottom: 6px;
+    }
+  }
