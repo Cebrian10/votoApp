@@ -8,10 +8,10 @@ import { AuthGuardService } from './service/auth-guard.service';
 import { SessionService } from './service/session.service';
 
 export const routes: Routes = [
-    {path: '', component: LoginComponent},
-    {path: 'login', component: LoginComponent},
-    {path: 'register', component: RegisterComponent},
-    {path: 'simpatizantes', component: SimpatizantesComponent},
+    {path: '', component: HomeComponent},
+    // {path: 'login', component: LoginComponent},
+    // {path: 'register', component: RegisterComponent},
+    // {path: 'simpatizantes', component: SimpatizantesComponent},
     {path: 'home', component: HomeComponent, canActivate:[AuthGuardService]},
     {path: 'persona/:cedula', component: PersonaComponent},
     { path: '**', redirectTo: '', pathMatch: 'full' }

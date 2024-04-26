@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { ApiService } from '../../service/api.service';
 import { DataService } from '../../service/data.service';
@@ -8,7 +9,7 @@ import { SessionService } from '../../service/session.service';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

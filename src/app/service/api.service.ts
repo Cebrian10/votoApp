@@ -15,10 +15,11 @@ export class ApiService {
 
 
   private readonly sessionService = inject(SessionService);
-  userData: any;
+  //userData: any;
+  userDataId: string = "9649";
 
   constructor(private http: HttpClient) { 
-    this.userData = this.sessionService.getSessionData('userData');
+    //this.userData = this.sessionService.getSessionData('userData');
   }
 
   private getHeaders(): HttpHeaders {
@@ -27,11 +28,11 @@ export class ApiService {
       'WHOPID': '1' // Valor fijo, puedes cambiarlo si necesitas
     });
 
-    if (this.userData !== null) {
+    if (this.userDataId !== null) {
       // const login = JSON.parse(this.userData);
       // headers.append('Authorization', `Api-Key ${login.id}`);
       //headers.append('WHOID', this.userData.id.toString());
-      headers = headers.set('WHOID', this.userData.id.toString());
+      headers = headers.set('WHOID', this.userDataId);
     }
     
     return headers;
